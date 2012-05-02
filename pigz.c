@@ -2982,7 +2982,7 @@ local void process(char *path)
         ind = 0;
         name = NULL;
         mtime = headis & 2 ?
-                (fstat(ind, &st) ? time(NULL) : st.st_mtime) : 0;
+                (fstat(ind, &st) ? time(NULL) : (time_t) st.st_mtime) : 0;
         len = 0;
     }
     else {
